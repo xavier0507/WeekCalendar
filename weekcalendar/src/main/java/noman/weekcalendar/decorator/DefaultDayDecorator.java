@@ -60,29 +60,38 @@ public class DefaultDayDecorator implements DayDecorator {
 
 
         if (firstDayOfTheWeek.getMonthOfYear() < dateTime.getMonthOfYear()
-                || firstDayOfTheWeek.getYear() < dateTime.getYear())
+                || firstDayOfTheWeek.getYear() < dateTime.getYear()) {
             dayTextView.setTextColor(Color.GRAY);
+        }
 
         DateTime calendarStartDate = WeekFragment.CalendarStartDate;
 
+//        if (dateTime.toLocalDate().equals(calendarStartDate.toLocalDate())) {
+//            dayTextView.setBackground(holoCircle);
+//            dayTextView.setTextColor(this.todayDateTextColor);
+//        } else {
+//            dayTextView.setTextColor(textColor);
+//        }
+
+        dayTextView.setTextColor(textColor);
+
         if (selectedDateTime != null) {
             if (selectedDateTime.toLocalDate().equals(dateTime.toLocalDate())) {
-                if (!selectedDateTime.toLocalDate().equals(calendarStartDate.toLocalDate()))
-                    dayTextView.setBackground(holoCircle);
+//                if (!selectedDateTime.toLocalDate().equals(calendarStartDate.toLocalDate())) {
+//                    dayTextView.setTextColor(Color.WHITE);
+//                    dayTextView.setBackground(solidCircle);
+//                }
+                dayTextView.setTextColor(Color.WHITE);
+                dayTextView.setBackground(solidCircle);
             } else {
                 dayTextView.setBackground(null);
             }
         }
 
-        if (dateTime.toLocalDate().equals(calendarStartDate.toLocalDate())) {
-            dayTextView.setBackground(solidCircle);
-            dayTextView.setTextColor(this.todayDateTextColor);
-        } else {
-            dayTextView.setTextColor(textColor);
-        }
         float size = textSize;
-        if (size == -1)
+        if (size == -1) {
             size = dayTextView.getTextSize();
+        }
         dayTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
     }
 }
