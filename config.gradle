@@ -1,0 +1,27 @@
+ext {
+    plugins = [
+            maven      : 'com.github.dcendents.android-maven',
+            bintray    : 'com.jfrog.bintray'
+    ]
+
+//    bintray [
+//        user = 'nomanrafique'
+//        key = 'KEY'
+//        pkg {
+//            repo = 'maven'
+//            name = 'weekcalendar'
+//
+//            version {
+//                name = '1.0.6'
+//                desc = 'WeekCalendar'
+//                released  = new Date()
+//                vcsTag = '1.0.6'
+//            }
+//
+//            licenses = ['Apache-2.0']
+//            vcsUrl = 'https://github.com/nomanr/WeekCalendar.git'
+//            websiteUrl = 'https://github.com/nomanr/WeekCalendar'
+//        }
+//        configurations = ['archives']
+//    ]
+}
