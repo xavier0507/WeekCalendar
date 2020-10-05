@@ -111,7 +111,7 @@ public class WeekCalendar extends LinearLayout {
     @Subscribe
     public void onDayDecorate(Event.OnDayDecorateEvent event) {
         if (dayDecorator != null) {
-            dayDecorator.decorate(event.getView(), event.getDayTextView(), event.getDateTime(),
+            dayDecorator.decorate(event.getView(), event.getMonthTextView(), event.getDayTextView(), event.getDateTime(),
                     event.getFirstDay(), event.getSelectedDateTime());
         }
     }

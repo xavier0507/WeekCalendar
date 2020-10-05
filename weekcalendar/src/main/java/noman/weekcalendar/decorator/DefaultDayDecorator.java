@@ -46,7 +46,7 @@ public class DefaultDayDecorator implements DayDecorator {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
-    public void decorate(View view, TextView dayTextView,
+    public void decorate(View view, TextView monthTextView, TextView dayTextView,
                          DateTime dateTime, DateTime firstDayOfTheWeek, DateTime selectedDateTime) {
         //DateTime dt = new DateTime();
 
@@ -61,6 +61,7 @@ public class DefaultDayDecorator implements DayDecorator {
 
         if (firstDayOfTheWeek.getMonthOfYear() < dateTime.getMonthOfYear()
                 || firstDayOfTheWeek.getYear() < dateTime.getYear()) {
+            monthTextView.setTextColor(Color.GRAY);
             dayTextView.setTextColor(Color.GRAY);
         }
 
@@ -73,6 +74,7 @@ public class DefaultDayDecorator implements DayDecorator {
 //            dayTextView.setTextColor(textColor);
 //        }
 
+        monthTextView.setTextColor(textColor);
         dayTextView.setTextColor(textColor);
 
         if (selectedDateTime != null) {

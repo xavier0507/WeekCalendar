@@ -9,5 +9,5 @@ import org.joda.time.DateTime;
  * Created by gokhan on 7/27/16.
  */
 public interface DayDecorator {
-    void decorate(View view, TextView dayTextView, DateTime dateTime, DateTime firstDayOfTheWeek, DateTime selectedDateTime);
+    void decorate(View view, TextView monthTextView, TextView dayTextView, DateTime dateTime, DateTime firstDayOfTheWeek, DateTime selectedDateTime);
 }

@@ -21,7 +21,9 @@ import com.squareup.otto.Subscribe;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
 
+import java.text.DateFormatSymbols;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import noman.weekcalendar.R;
 import noman.weekcalendar.eventbus.BusProvider;
@@ -160,10 +162,14 @@ public class WeekFragment extends Fragment {
 
             DateTime dateTime = getItem(position).withMillisOfDay(0);
 
+            TextView monthTextView = (TextView) convertView.findViewById(R.id.text_month);
             TextView dayTextView = (TextView) convertView.findViewById(R.id.daytext);
+
+            String[] shortMonths = new DateFormatSymbols(Locale.ENGLISH).getShortMonths();
+            monthTextView.setText(String.valueOf(shortMonths[dateTime.getMonthOfYear() - 1]));
             dayTextView.setText(String.valueOf(dateTime.getDayOfMonth()));
 
-            BusProvider.getInstance().post(new Event.OnDayDecorateEvent(convertView, dayTextView,
+            BusProvider.getInstance().post(new Event.OnDayDecorateEvent(convertView, monthTextView, dayTextView,
                     dateTime, firstDay, WeekFragment.selectedDateTime));
             return convertView;
         }

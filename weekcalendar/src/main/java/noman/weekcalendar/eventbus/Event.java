@@ -86,14 +86,16 @@ public class Event {
     public static class OnDayDecorateEvent {
 
         private final View view;
+        private final TextView monthTextView;
         private final TextView dayTextView;
         private final DateTime dateTime;
         private DateTime firstDay;
         private DateTime selectedDateTime;
 
-        public OnDayDecorateEvent(View view, TextView dayTextView, DateTime dateTime,
+        public OnDayDecorateEvent(View view, TextView monthTextView, TextView dayTextView, DateTime dateTime,
                                   DateTime firstDayOfTheWeek, DateTime selectedDateTime) {
             this.view = view;
+            this.monthTextView = monthTextView;
             this.dayTextView = dayTextView;
             this.dateTime = dateTime;
             this.firstDay = firstDayOfTheWeek;
@@ -102,6 +104,10 @@ public class Event {
 
         public View getView() {
             return view;
+        }
+
+        public TextView getMonthTextView() {
+            return monthTextView;
         }
 
         public TextView getDayTextView() {
